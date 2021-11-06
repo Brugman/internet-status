@@ -8,7 +8,7 @@ function createWindow() {
         width: 640,
         height: 360,
         // icon: null,
-        icon: 'public_html/icon.png',
+        icon: 'public_html/icon-neutral.png',
         // thickFrame: false,
         // fullscreen: true,
         // simpleFullscreen: true,
@@ -32,7 +32,7 @@ function createWindow() {
 
     win.loadFile('public_html/index.html');
 
-    // win.webContents.openDevTools();
+    win.webContents.openDevTools();
 
     win.once( 'ready-to-show', () => {
         win.show();
