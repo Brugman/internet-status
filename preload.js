@@ -1,7 +1,7 @@
-
+const { ipcRenderer } = require('electron');
 
 function display_internet_status() {
-    document.body.className = ( navigator.onLine ? 'online' : 'offline' );
+    ipcRenderer.send( 'status-update', ( navigator.onLine ? 'online' : 'offline' ) );
 }
 
 window.addEventListener( 'online', display_internet_status );

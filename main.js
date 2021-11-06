@@ -22,7 +22,8 @@ function createWindow() {
         // transparent: true,
         // backgroundColor: '#f09',
         webPreferences: {
-            nodeIntegration: true,
+            // nodeIntegration: true,
+            preload: path.join( __dirname, 'preload.js' ),
         },
     });
 
@@ -60,11 +61,12 @@ app.on( 'window-all-closed', function () {
 });
 
 //
-ipcMain.on( 'asynchronous-message', ( event, arg ) => {
+ipcMain.on( 'status-update', ( event, arg ) => {
 
-  console.log( arg );
+    // online | offline
+    console.log( arg );
 
-  event.reply( 'asynchronous-reply', 'pong' );
-
+    // win is not defined
+    win.setIcon('public_html/icon-'+arg+'.png');
 });
 
