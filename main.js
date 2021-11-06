@@ -7,43 +7,29 @@ function createWindow() {
         show: false,
         width: 640,
         height: 360,
-        // icon: null,
         icon: 'public_html/icon-neutral.png',
-        // thickFrame: false,
-        // fullscreen: true,
-        // simpleFullscreen: true,
-        // titleBarStyle: 'hidden',
-        // titleBarOverlay: true,
-        // titleBarOverlay: {
-        //     color: '#f00',
-        //     symbolColor: '#00f',
-        // },
-        // frame: false,
-        // transparent: true,
-        // backgroundColor: '#f09',
         webPreferences: {
-            // nodeIntegration: true,
             preload: path.join( __dirname, 'preload.js' ),
         },
     });
-
-    // win.setIcon('public_html/icon.png');
 
     win.removeMenu();
 
     win.loadFile('public_html/index.html');
 
-    win.webContents.openDevTools();
+    // win.webContents.openDevTools();
 
     win.once( 'ready-to-show', () => {
         win.show();
     });
+
+    return win;
 }
 
 // electron has initialized
 app.whenReady().then( () => {
 
-    createWindow();
+    win = createWindow();
 
     // if macos: recreate window when dock icon clicked with no windows open
     app.on( 'activate', function () {
@@ -60,13 +46,11 @@ app.on( 'window-all-closed', function () {
     }
 });
 
-//
+// respond to status updates
 ipcMain.on( 'status-update', ( event, arg ) => {
-
-    // online | offline
-    console.log( arg );
-
-    // win is not defined
+    // feedback
+    console.log( 'status is '+arg );
+    // set icon
     win.setIcon('public_html/icon-'+arg+'.png');
 });
 
