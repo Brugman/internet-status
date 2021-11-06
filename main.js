@@ -7,7 +7,8 @@ function createWindow() {
         show: false,
         width: 640,
         height: 360,
-        // icon: false,
+        // icon: null,
+        icon: 'public_html/icon.png',
         // thickFrame: false,
         // fullscreen: true,
         // simpleFullscreen: true,
@@ -25,10 +26,11 @@ function createWindow() {
         // },
     });
 
+    // win.setIcon('public_html/icon.png');
+
     win.removeMenu();
 
     win.loadFile('public_html/index.html');
-    // win.loadURL('https://github.com');
 
     // win.webContents.openDevTools();
 

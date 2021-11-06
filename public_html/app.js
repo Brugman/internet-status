@@ -7,3 +7,5 @@ window.addEventListener( 'offline', display_internet_status );
 
 display_internet_status();
 
+// win.setIcon('public_html/icon-offline.png');
+
