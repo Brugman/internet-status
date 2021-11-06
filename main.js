@@ -1,5 +1,5 @@
-const { app, BrowserWindow } = require('electron');
-const path                   = require('path');
+const { app, BrowserWindow, ipcMain } = require('electron');
+const path                            = require('path');
 
 function createWindow() {
 
@@ -21,9 +21,9 @@ function createWindow() {
         // frame: false,
         // transparent: true,
         // backgroundColor: '#f09',
-        // webPreferences: {
-        //     preload: path.join( __dirname, 'preload.js' ),
-        // },
+        webPreferences: {
+            nodeIntegration: true,
+        },
     });
 
     // win.setIcon('public_html/icon.png');
@@ -57,5 +57,14 @@ app.on( 'window-all-closed', function () {
     if ( process.platform !== 'darwin' ) {
         app.quit();
     }
+});
+
+//
+ipcMain.on( 'asynchronous-message', ( event, arg ) => {
+
+  console.log( arg );
+
+  event.reply( 'asynchronous-reply', 'pong' );
+
 });
 

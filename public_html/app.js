@@ -7,5 +7,11 @@ window.addEventListener( 'offline', display_internet_status );
 
 display_internet_status();
 
-// win.setIcon('public_html/icon-offline.png');
+const { ipcRenderer } = require('electron');
+
+ipcRenderer.on( 'asynchronous-reply', ( event, arg ) => {
+    console.log( arg );
+});
+
+ipcRenderer.send( 'asynchronous-message', 'ping' );
 
