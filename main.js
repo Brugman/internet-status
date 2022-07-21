@@ -49,7 +49,7 @@ app.on( 'window-all-closed', function () {
 // respond to status updates
 ipcMain.on( 'status-update', ( event, arg ) => {
     // feedback
-    console.log( 'status is '+arg );
+    // console.log( 'status is '+arg );
     // set icon
     win.setIcon('public_html/icon-'+arg+'.png');
 });
