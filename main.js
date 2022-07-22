@@ -47,9 +47,7 @@ app.on( 'window-all-closed', function () {
 });
 
 // respond to status updates
-ipcMain.on( 'status-update', ( event, arg ) => {
-    // feedback
-    // console.log( 'status is '+arg );
+ipcMain.on( 'check-ip', ( event, arg ) => {
     // set icon
     win.setIcon( __dirname + '/public_html/assets/icon-'+arg+'.png' );
 });

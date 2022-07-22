@@ -4,20 +4,27 @@ const net             = require('net');
 const delay = 2;
 
 function ip_is_online() {
-    // console.log( 'You are online.' );
-    document.body.className = 'online';
-    ipcRenderer.send( 'status-update', 'online' );
+    document.body.classList.remove( 'ip-offline' );
+    document.body.classList.add( 'ip-online' );
+
+    ipcRenderer.send( 'check-ip', 'online' );
 }
+
 function ip_is_offline() {
-    // console.log( 'PANIC! You are offline.' );
-    document.body.className = 'offline';
-    ipcRenderer.send( 'status-update', 'offline' );
+    document.body.classList.remove( 'ip-online' );
+    document.body.classList.add( 'ip-offline' );
+
+    ipcRenderer.send( 'check-ip', 'offline' );
 }
+
 function dns_is_online() {
-    console.log( 'Your DNS is online.' );
+    document.body.classList.remove( 'dns-offline' );
+    document.body.classList.add( 'dns-online' );
 }
+
 function dns_is_offline() {
-    console.log( 'PANIC! Your DNS is offline.' );
+    document.body.classList.remove( 'dns-online' );
+    document.body.classList.add( 'dns-offline' );
 }
 
 setInterval( function () {
