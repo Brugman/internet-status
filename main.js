@@ -7,7 +7,7 @@ function createWindow() {
         show: false,
         width: 640,
         height: 360,
-        icon: 'public_html/icon-neutral.png',
+        icon: __dirname + '/public_html/assets/icon-neutral.png',
         webPreferences: {
             preload: path.join( __dirname, 'preload.js' ),
         },
@@ -51,6 +51,6 @@ ipcMain.on( 'status-update', ( event, arg ) => {
     // feedback
     // console.log( 'status is '+arg );
     // set icon
-    win.setIcon('public_html/icon-'+arg+'.png');
+    win.setIcon( __dirname + '/public_html/assets/icon-'+arg+'.png' );
 });
 
