@@ -36,10 +36,10 @@ setInterval( function () {
     sock.on( 'connect', function () {
         ip_is_online();
         sock.destroy();
-    }).on( 'error', function ( e ) {
+    }).on( 'error', function () {
         ip_is_offline();
         sock.destroy();
-    }).on( 'timeout', function ( e ) {
+    }).on( 'timeout', function () {
         ip_is_offline();
         sock.destroy();
     }).connect( 80, '1.1.1.1' );
@@ -56,10 +56,10 @@ setTimeout( function () {
         sock.on( 'connect', function () {
             dns_is_online();
             sock.destroy();
-        }).on( 'error', function ( e ) {
+        }).on( 'error', function () {
             dns_is_offline();
             sock.destroy();
-        }).on( 'timeout', function ( e ) {
+        }).on( 'timeout', function () {
             dns_is_offline();
             sock.destroy();
         }).connect( 80, 'one.one.one.one' );

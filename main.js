@@ -9,13 +9,13 @@ function createWindow() {
         height: 360,
         icon: __dirname + '/public_html/assets/icon-neutral.png',
         webPreferences: {
-            preload: path.join( __dirname, 'preload.js' ),
+            preload: __dirname + '/preload.js',
         },
     });
 
     win.removeMenu();
 
-    win.loadFile('public_html/index.html');
+    win.loadFile( 'public_html/index.html' );
 
     // win.webContents.openDevTools();
 
