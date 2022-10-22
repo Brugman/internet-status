@@ -45,7 +45,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "internet_status"
+            "name": "internet-status"
           }
         },
         {
