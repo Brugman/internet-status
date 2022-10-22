@@ -1,7 +1,11 @@
 {
   "name": "internet-status",
   "version": "1.0.0",
-  "description": "placeholder",
+  "description": "Displays your internet status.",
+  "homepage": "https://github.com/Brugman/internet-status",
+  "license": "MIT",
+  "author": "Tim Brugman (https://timbrugman.com/)",
+  "repository": "github:Brugman/internet-status",
   "main": "main.js",
   "scripts": {
     "build": "npx electron .",
@@ -10,12 +14,6 @@
     "package": "electron-forge package",
     "make": "electron-forge make"
   },
-  "repository": {
-    "type": "git",
-    "url": "placeholder"
-  },
-  "author": "Tim Brugman",
-  "license": "MIT",
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.64",
     "@electron-forge/maker-deb": "^6.0.0-beta.64",
